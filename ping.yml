@@ -1,6 +1,6 @@
 #---
 #- name: Ping Process All testservers
-# hosts: 10.10.1.163,10.10.1.164
+#  hosts: 10.10.1.163,10.10.1.164
 #  remote_user: root
 #  become: yes
 #  tasks: 
@@ -16,6 +16,8 @@
     git_user: VinodMandloi
     git_pass: Vella@2717
   tasks:
+  - name: Ping Server
+    action: ping
   - name: Ping Server
     git:
       repo: "https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@github.com/VinodMandloi/aspnetcorewebsite.git"
