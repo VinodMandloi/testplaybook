@@ -4,3 +4,5 @@
   tasks: 
   - name: Ping Server
     action: ping
+  - name: Installing wget 
+    yum: pkg=wget state=present
