@@ -1,6 +1,6 @@
 ---
 - name: Ping Process All testservers
-  hosts: testservers
+  hosts: 10.10.1.163,10.10.1.164
   tasks: 
   - name: Ping Server
     action: ping
