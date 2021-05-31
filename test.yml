@@ -1,6 +1,5 @@
 ---
-- name: Ping Process 01
-  hosts: localhost
+- name: Ping Process 001
   remote_user: root
   tasks: 
   - name: Ping Server
