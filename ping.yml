@@ -2,7 +2,7 @@
 - name: Ping Process All testservers
   hosts: 10.10.1.163,10.10.1.164
   remote_user: root 
-  become: true
+  become: yes
   tasks: 
   - name: Ping Server
     action: ping
