@@ -1,6 +1,6 @@
 ---
-- name: Ping Process All 01
-  hosts: all
+- name: Ping Process All testservers
+  hosts: testservers
   tasks: 
   - name: Ping Server
     action: ping
