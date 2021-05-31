@@ -1,6 +1,6 @@
 ---
 - name: Ping Process
-  hosts: all
+  hosts: testservers
   remote_user: root
   tasks: 
   - name: Ping Server
