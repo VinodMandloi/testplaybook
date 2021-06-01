@@ -20,9 +20,5 @@
   tasks:
   - name: Ping Server
     action: ping
-  - name: Checkout Directory
-    git:
-      repo: "https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@github.com/VinodMandloi/aspnetcorewebsite.git"
-      dest: "/root/Ansible"
 #  - name: Installing wget 
 #    yum: pkg=wget state=present
