@@ -1,6 +1,7 @@
 ---
 - name: Ping Process Started 01
   remote_user: root
+  hosts: localhost
   tasks: 
   - name: Ping Server
     action: ping
