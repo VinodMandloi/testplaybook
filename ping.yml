@@ -12,7 +12,7 @@
   remote_user: root
   become: true
   become_method: sudo
-  hosts: 10.10.1.163,10.10.1.164
+  hosts: all
   gather_facts: no
   vars:
     git_user: VinodMandloi
