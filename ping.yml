@@ -7,12 +7,14 @@
 #  - name: Ping Server
 #    action: ping
 ---
-- name: Git Checkout
-  hosts: 10.10.1.163,10.10.1.164
+---
+- name: Git Checkout 
   remote_user: root
-  #become: yes
+  become: yes
+  become_method: sudo
+  hosts: 10.10.1.163,10.10.1.164
+  gather_facts: no
   vars:
-    repo_name: local-kvm-cloudimage
     git_user: VinodMandloi
     git_pass: Vella@2717
   tasks:
