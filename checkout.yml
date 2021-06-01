@@ -1,0 +1,16 @@
+---
+- name: Git Checkout 
+  remote_user: root
+  become: yes
+  become_method: sudo
+  hosts: 10.10.1.163,10.10.1.164
+  gather_facts: no
+  vars:
+    repo_name: local-kvm-cloudimage
+    git_user: VinodMandloi
+    git_pass: Vella@2717
+  tasks:
+  - name: Ping Server
+    git:
+      repo: "https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@github.com/VinodMandloi/aspnetcorewebsite.git"
+      dest: "/root/Ansible"
