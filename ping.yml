@@ -6,7 +6,7 @@
 #  tasks: 
 #  - name: Ping Server
 #    action: ping
----
+#---
 ---
 - name: Git Checkout 
   remote_user: root
@@ -20,7 +20,7 @@
   tasks:
   - name: Ping Server
     action: ping
-  - name: Ping Server
+  - name: Checkout Directory
     git:
       repo: "https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@github.com/VinodMandloi/aspnetcorewebsite.git"
       dest: "/root/Ansible"
