@@ -1,0 +1,7 @@
+---
+ - name: Installwget 
+   hosts: localhost
+   remote_user: root 
+   tasks: 
+   - name: Installing wget 
+     yum: pkg=wget state=present
