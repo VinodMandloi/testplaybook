@@ -8,7 +8,7 @@
 #    action: ping
 ---
 - name: Git Checkout
-  hosts: testservers
+  hosts: 10.10.1.163,10.10.1.164
   remote_user: root
   become: yes
   vars:
