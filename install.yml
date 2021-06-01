@@ -3,6 +3,7 @@
    remote_user: root
    become_method: sudo
    hosts: 10.10.1.163,10.10.1.164
+   gather_facts: no
    tasks: 
    - name: Installing wget 
      yum: pkg=wget state=present
