@@ -10,7 +10,8 @@
 ---
 - name: Git Checkout 
   remote_user: root
-  become: true
+  #become: true
+  ansible_become: true
   become_method: sudo
   hosts: 10.10.1.163,10.10.1.164
   gather_facts: no
