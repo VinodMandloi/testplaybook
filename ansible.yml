@@ -1,8 +1,8 @@
 ---
 - name: Ping Process 001
   hosts: 10.10.1.163,10.10.1.164
-  become: yes
   remote_user: root
+  become: yes
   tasks: 
   - name: Ping Server
     action: ping
