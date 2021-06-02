@@ -1,19 +1,7 @@
-#---
-#- name: Ping Process All testservers
-#  hosts: 10.10.1.163,10.10.1.164
-#  remote_user: root
-#  become: yes
-#  tasks: 
-#  - name: Ping Server
-#    action: ping
-#---
 ---
 - name: Git Checkout 
   remote_user: root
-  become: true
-  become_method: sudo
-  hosts: all
-  gather_facts: no
+  hosts: 10.10.1.163,10.10.1.164
   vars:
     git_user: VinodMandloi
     git_pass: Vella@2717
@@ -24,5 +12,17 @@
     git:
       repo: "https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@github.com/VinodMandloi/aspnetcorewebsite.git"
       dest: "/root/Ansible"
+      
+#---
+#- name: Ping Process All testservers
+#  hosts: 10.10.1.163,10.10.1.164
+#  remote_user: root
+#  become: yes
+#  tasks: 
+#  - name: Ping Server
+#    action: ping
+#---
+#  gather_facts: no
+#  become_method: sudo
 #  - name: Installing wget 
 #    yum: pkg=wget state=present
