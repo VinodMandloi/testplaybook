@@ -1,0 +1,40 @@
+---
+- name: API CALL
+  hosts: 10.10.1.163,10.10.1.164
+  remote_user: root
+  tasks:
+    - name: Call API Task
+      uri:
+        url: https://10.10.1.205:443/API/APP/APP008/RequestPassword
+        url_username: AccessKey
+        url_password: spectraadmin
+        method: POST
+        body: {"AssetType":"Unix based","AssetHost":"10.10.1.163","DBInstance":"","AccountName":"root","Instance":"Default"}
+        validate_certs: no
+        return_content: yes
+        force_basic_auth: yes
+        status_code: 200
+        body_format: json
+      register: response
+    - set_fact: result="{{ response.json.Result | replace('\r', '') | replace('\n', '') | replace('\', '') }}"
+    - set_fact: stnpassword=result.Password
+    - set_fact: stnpassword='spectraadmin'
+    - name: Call API with New Password
+      uri:
+        url: https://10.10.1.205:443/API/APP/APP008/RequestPassword
+        url_username: AccessKey
+        url_password: "{{ stnpassword }}"
+        method: POST
+        body: {"AssetType":"Unix based","AssetHost":"10.10.1.163","DBInstance":"","AccountName":"root","Instance":"Default"}
+        validate_certs: no
+        return_content: yes
+        force_basic_auth: yes
+        status_code: 200
+        body_format: json
+      register: responsenew
+    - debug:
+       var: url_password
+    - debug:
+       var: stnpassword
+    - debug:
+       var: responsenew
