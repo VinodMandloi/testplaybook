@@ -1,7 +1,14 @@
 ---
 - name: Ping Process Started 01
   remote_user: root
-  hosts: localhost
-  tasks: 
-  - name: Ping Server
+  hosts: localhost 
+  vars:
+    git_user: VinodMandloi
+    git_pass: Vella@2717
+  tasks:
+  - name: Checkout Process
     action: ping
+  - name: Checkout Started
+    git:
+      repo: "https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@github.com/VinodMandloi/aspnetcorewebsite.git"
+      dest: "/root/Ansible"
