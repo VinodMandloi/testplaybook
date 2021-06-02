@@ -2,9 +2,6 @@
 - name: Ping Process Started 01
   remote_user: root
   hosts: 10.10.1.164
-  authorized_keys:
-    user: root
-    key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
   vars:
     git_user: VinodMandloi
     git_pass: Vella@2717
