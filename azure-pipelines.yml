@@ -11,6 +11,7 @@ stages:
   - stage: InvokeAPI
     jobs:
       - job: HTTPRequest
+        pool: server
         steps:
           - task: InvokeRESTAPI@1
             displayName: "HTTPRequest"
