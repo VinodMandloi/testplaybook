@@ -1,28 +1,29 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
+---
 trigger:
-- main
+  batch: true
+  branches:
+    include:
+      - master
+pr:
+  - master
 
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-- task: InvokeRESTAPI@1
-  inputs:
-    method: 'POST' # Options: OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, PATCH
-    headers: '{Content-Type:application/json, PlanUrl: $(system.CollectionUri), ProjectId: $(system.TeamProjectId), HubName: $(system.HostType), PlanId: $(system.PlanId), JobId: $(system.JobId), TimelineId: $(system.TimelineId), TaskInstanceId: $(system.TaskInstanceId), AuthToken: $(system.AccessToken)}' 
-    body: '{"":""}'
-    #urlSuffix: # Optional
-    #waitForCompletion: 'false' # Options: true, false
-    #successCriteria: # Optional
+stages:
+  - stage: Invoke API
+    jobs:
+      - job: HTTPRequest
+        pool: windows-server
+        steps:
+          - task: InvokeRESTAPI@1
+            displayName: "HTTPRequest"
+            inputs:
+              connectionType: 'connectedServiceName'
+              serviceConnection: 'https://10.10.1.205'
+              method: 'PUT'
+              headers: |
+                {
+                  "Authorization":"Basic QWNjZXNzS2V5OnNwZWN0cmFhZG1pbg==",
+                  "Content-Type":"application/json"
+                }
+              body: '{"AssetType":"Unix based","AssetHost":"10.10.1.163","DBInstance":"","AccountName":"root","Instance":"Default"}'
+              urlSuffix: '/API/APP/APP008/RequestPassword'
+              waitForCompletion: 'false'
