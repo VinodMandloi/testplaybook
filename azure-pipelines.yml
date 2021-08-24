@@ -19,11 +19,7 @@ stages:
               connectionType: 'connectedServiceName'
               serviceConnection: 'https://10.10.1.205'
               method: 'PUT'
-              headers: |
-                {
-                  "AccessKey":"Basic QWNjZXNzS2V5OnNwZWN0cmFhZG1pbg==",
-                  "Content-Type":"application/json"
-                }
+
               body: '{"AssetType":"Unix based","AssetHost":"10.10.1.163","DBInstance":"","AccountName":"root","Instance":"Default"}'
               urlSuffix: '/API/APP/APP008/RequestPassword'
               waitForCompletion: 'false'
