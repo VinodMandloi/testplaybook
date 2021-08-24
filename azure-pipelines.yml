@@ -8,7 +8,7 @@ pr:
   - master
 
 stages:
-  - stage: Invoke API
+  - stage: InvokeAPI
     jobs:
       - job: HTTPRequest
         pool: windows-server
