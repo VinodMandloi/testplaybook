@@ -17,7 +17,7 @@ stages:
             displayName: "HTTPRequest"
             inputs:
               connectionType: 'connectedServiceName'
-              serviceConnection: 'https://dev.azure.com/vinodmandloi/AzureDevOpsPractice'
+              serviceConnection: 'https://10.10.1.205'
               method: 'PUT'
               headers: |
                 {
