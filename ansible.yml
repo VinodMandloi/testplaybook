@@ -1,6 +1,6 @@
 ---
 - name: API CALL
-  hosts: 10.10.1.164
+  hosts: localhost
   remote_user: root
   tasks:
     - name: Call API Task
