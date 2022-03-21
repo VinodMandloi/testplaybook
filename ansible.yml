@@ -1,6 +1,6 @@
 ---
 - name: API CALL
-  hosts: 10.10.1.163,10.10.1.164,localhost
+  hosts: 10.10.1.164 ansible_ssh_pass=root ansible_ssh_user=pass@1234
   remote_user: root
   tasks:
     - name: Call API Task
