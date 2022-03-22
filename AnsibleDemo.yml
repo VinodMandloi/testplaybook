@@ -1,7 +1,7 @@
 ---
 - name: API CALL
   hosts: 10.10.1.164
-  remote_user: root
+  remote_user: test
   tasks:
     - name: Call API Task
       uri:
