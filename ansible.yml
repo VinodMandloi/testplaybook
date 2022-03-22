@@ -1,6 +1,7 @@
 ---
 - name: Ping Process Started 01
   hosts: 10.10.1.164
+  remote_user: test
   vars:
     git_user: VinodMandloi
     git_pass: Vella@2717
