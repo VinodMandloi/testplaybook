@@ -15,7 +15,7 @@
         status_code: 200
         body_format: json
       register: response
-    - set_fact: result="{{ response.content.Result | replace('\r', '') | replace('\n', '') | replace('\', '') }}"
+    - set_fact: result="{{ response.json.Result | replace('\r', '') | replace('\n', '') | replace('\', '') }}"
     - set_fact: stnpassword="{{ result.Password }}"
     - debug:
        var: stnpassword
